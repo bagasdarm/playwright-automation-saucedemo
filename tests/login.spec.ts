@@ -5,6 +5,10 @@ test.beforeEach(async ({ page }) => {
   await expect(page).toHaveURL("https://www.saucedemo.com/");
 });
 
+test.afterEach(async ({ page }) => {
+    await page.waitForTimeout(2000);
+})
+
 test.describe("TS1 - Login", { tag: "@TS1" }, () => {
   test("TS1 - LG - 1", { tag: "@LG1" }, async ({ page }) => {
     // await page.goto(''); has been replaced by Hooks @hooks.spec.ts
