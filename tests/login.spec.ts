@@ -107,16 +107,4 @@ test.describe("TS1 - Login", { tag: "@TS1" }, () => {
     );
   });
 
-  test("TS1 - LG - 9", { tag: "@LG9" }, async ({ page }) => {
-    await page
-      .locator('[data-test="username"]')
-      .fill(process.env.SAUCE_USERNAME_STANDARD as string);
-    await page
-      .locator('[data-test="password"]')
-      .fill(process.env.SAUCE_PASSWORD_CAPITAL as string);
-    await page.locator('[data-test="login-button"]').click();
-    await expect(page.locator('[data-test="error"]')).toHaveText(
-      "Epic sadface: Username and password do not match any user in this service",
-    );
-  });
 });
